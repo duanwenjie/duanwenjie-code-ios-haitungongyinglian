@@ -1,0 +1,94 @@
+//
+//  PrefixHeader.pch
+//  DolphinSupplyChain
+//
+//  Created by ZhengXueNing on 2016/11/28.
+//  Copyright © 2016年 学宁. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#endif
+
+#pragma mark - 系统常量
+
+//******** 接口 ********//
+#ifdef DEBUG
+    #define  KHTTPURLBBC  [YKSUserDefaults shareInstance].gainHTTPURL
+#else
+//    #define  KHTTPURLBBC  @"https://api.haitun.hk%@"
+    #define  KHTTPURLBBC  @"https://api.dolphinsc.com%@"
+#endif
+
+
+
+
+
+
+//******** 常量 ********//
+#define kDisWidth [UIScreen mainScreen].bounds.size.width    // 屏幕宽
+#define kDisHeight [UIScreen mainScreen].bounds.size.height  // 屏幕高
+
+
+//******** 适配iOS11 ********//
+#define kDisNavgation (kDisHeight == 812.0 ? 88 : 64)    // 导航栏高度
+#define kDisTabBar    (kDisHeight == 812.0 ? 83 : 49)    // TabBar高度
+#define KBottom       (kDisHeight == 812.0 ? 34 : 0)     // 底部安全高度
+#define KBottomSuit   (kDisHeight == 812.0 ? 34+8 : 0)   // 底部安全高度（微调）
+#define KTop          (kDisHeight == 812.0 ? 24 : 0)     // 顶部安全高度
+#define KTopSuit      (kDisHeight == 812.0 ? 24-8 : 0)   // 顶部安全高度（微调）
+#define kCurrentAppVersion   [[[NSBundle mainBundle] infoDictionary] \
+        objectForKey:@"CFBundleShortVersionString"]    // 当前版本号
+
+#define iOSVersion [[[UIDevice currentDevice] systemVersion] floatValue] // iOS系统版本
+
+#define kFont10_B [UIFont boldSystemFontOfSize:10]    // 10号粗体
+#define kFont10   [UIFont systemFontOfSize:10]        // 10号细体
+#define kFont11_B [UIFont boldSystemFontOfSize:11]    // 11号粗体
+#define kFont11   [UIFont systemFontOfSize:11]        // 11号细体
+#define kFont12_B [UIFont boldSystemFontOfSize:12]    // 12号粗体
+#define kFont12   [UIFont systemFontOfSize:12]        // 12号细体
+#define kFont13_B [UIFont boldSystemFontOfSize:13]    // 13号粗体
+#define kFont13   [UIFont systemFontOfSize:13]        // 13号细体
+#define kFont14_B [UIFont boldSystemFontOfSize:14]    // 14号粗体
+#define kFont14   [UIFont systemFontOfSize:14]        // 14号细体
+#define kFont15_B [UIFont boldSystemFontOfSize:15]    // 15号粗体
+#define kFont15   [UIFont systemFontOfSize:15]        // 15号细体
+#define kFont16_B [UIFont boldSystemFontOfSize:16]    // 16号粗体
+#define kFont16   [UIFont systemFontOfSize:16]        // 16号细体
+#define kFont17_B [UIFont boldSystemFontOfSize:17]    // 17号粗体
+#define kFont17   [UIFont systemFontOfSize:17]        // 17号细体
+#define kFont18_B [UIFont boldSystemFontOfSize:18]    // 18号粗体
+#define kFont18   [UIFont systemFontOfSize:18]        // 18号细体
+#define kFont19_B [UIFont boldSystemFontOfSize:19]    // 19号粗体
+#define kFont19   [UIFont systemFontOfSize:19]        // 19号细体
+#define kFont20_B [UIFont boldSystemFontOfSize:20]    // 20号粗体
+#define kFont20   [UIFont systemFontOfSize:20]        // 20号细体
+
+
+#define ColorAPPTheme    [UIColor colorWithHexString:@"12a0ea"]  // APP主题颜色
+#define ColorLine        [UIColor colorWithHexString:@"dcdcdc"]  // 线条颜色
+#define ColorBackground  [UIColor colorWithHexString:@"efeff4"]  // 控制器背景颜色
+
+
+
+#define color(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define kCustomBlack  color(54, 54, 54, 1)
+#define kLineColer color(220, 220, 220, 1)
+#define kCustomWordColor  color(95, 97, 98, 1)
+
+
+#pragma mark - 修改控制台打印
+#ifdef DEBUG
+# define ZXNLog(fmt, ...) NSLog((@"\n文件位置:  %s""\n""函数名:    %s""\n""行号      :%d \n" fmt @"\n=*=*=*=*=*=*=*=*=*=分 割 线=*=*=*=*=*=*=*=*=*=\n\n\n\n"), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+# define ZXNLog(...);
+#endif
+
+#pragma mark - Block弱引用调用
+#define WS(weakSelf) __weak __typeof(&*self) weakSelf = self;
+
+#pragma mark - 调用统一头文件
+#import "Const.h"
+
+

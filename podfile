@@ -1,0 +1,26 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+#use_frameworks!
+
+
+target 'DolphinSupplyChain' do
+  pod 'SDWebImage', '~> 3.8.2'
+  pod 'Masonry', '~> 1.0.2'
+  pod 'MJRefresh', '~> 3.1.12'
+  pod 'AFNetworking', '~> 3.1.0'
+
+  # 集成微信
+  pod 'UMengUShare/Social/WeChat', '~> 6.1’
+
+  # 集成QQ
+  pod 'UMengUShare/Social/QQ', '~> 6.1’
+
+  # U-Share SDK UI模块（分享面板，建议添加）
+  pod 'UMengUShare/UI', '~> 6.1’
+
+  pod 'UMengAnalytics-NO-IDFA', '~> 4.1.5'
+  
+  pod 'WSProgressHUD'
+
+  pod 'FMDB', '~> 2.6.2'
+end
