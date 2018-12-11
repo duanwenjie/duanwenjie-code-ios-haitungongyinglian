@@ -539,7 +539,7 @@
 - (void)tapQQ
 {
     //qqNumber就是你要打开的QQ号码， 也就是你的客服号码。
-    NSString  *qqNumber=@"2880942711";
+    NSString  *qqNumber=@"3472529929";
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]]) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];

@@ -50,7 +50,7 @@
     [imgTop addSubview:lblOne];
     
     UILabel *lblTwo = [[UILabel alloc] initWithFrame:CGRectMake(lblOne.left, lblOne.bottom + 2, 160, 40)];
-    lblTwo.text = @"周一至周六 08:30-12:30\n                    14:00-18:00";
+    lblTwo.text = @"周一至周日 08:30-12:30\n                    14:00-18:00";
     lblTwo.numberOfLines = 0;
     lblTwo.font = [UIFont systemFontOfSize:14];
     lblTwo.textAlignment = NSTextAlignmentLeft;
@@ -77,7 +77,7 @@
     [vOne addSubview:lblQQ];
     
     UILabel *lblQQNumber = [[UILabel alloc] initWithFrame:CGRectMake(kDisWidth - 135, 0, 135 - 27, 45)];
-    lblQQNumber.text = @"2880942711";
+    lblQQNumber.text = @"3472529929";
     lblQQNumber.font = [UIFont systemFontOfSize:14];
     lblQQNumber.textAlignment = NSTextAlignmentRight;
     lblQQNumber.textColor = [UIColor colorWithHexString:@"666666"];
@@ -129,7 +129,7 @@
 - (void)tapQQ
 {
     //qqNumber就是你要打开的QQ号码， 也就是你的客服号码。
-    NSString  *qqNumber=@"2880942711";
+    NSString  *qqNumber=@"3472529929";
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mqq://"]]) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
