@@ -243,7 +243,7 @@
 - (C_TabBarController *)User_VC
 {
     if (!_User_VC) {
-        _User_VC = [[C_TabBarController alloc] init];
+        _User_VC = [[C_TabBarController alloc] initWithLogin:YES];
     }
     return _User_VC;
 }

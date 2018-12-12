@@ -15,6 +15,8 @@
  */
 @property (nonatomic, assign) NSInteger         iPage;
 
+- (instancetype)initWithLogin:(BOOL)isLogin;
+
 /**
  *  添加Item红点
  *

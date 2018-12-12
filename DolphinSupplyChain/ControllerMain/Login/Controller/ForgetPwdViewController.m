@@ -55,28 +55,28 @@ static NSString * const kGetMsgURL = @"/user/sms";
     [vBack addSubview:vLineTwo];
     
     phoneText=[[PhoneView alloc] initWithFrame:CGRectMake(0, 0, kDisWidth-20, 44)];
-    phoneText.phoneTxt.placeholder = @"手机号/用户名";
+    phoneText.phoneTxt.placeholder = @"请输入手机号/用户名";
     [vBack addSubview:phoneText];
     
     
     imgText = [[nameView alloc] initWithFrame:CGRectMake(0, 44.5, kDisWidth-20, 44)];
     imgText.labText = @"验证码";
     imgText.delegate = self;
-    imgText.pwdTxt.placeholder = @"输入图片验证码";
+    imgText.pwdTxt.placeholder = @"请输入图片验证码";
     [vBack addSubview:imgText];
     
     
-    UILabel *lblPhoneCode = [[UILabel alloc] initWithFrame:CGRectMake(20, 89, 70, 44)];
-    lblPhoneCode.font = [UIFont systemFontOfSize:12.0f];
-    lblPhoneCode.text = @"手机验证码";
+    UILabel *lblPhoneCode = [[UILabel alloc] initWithFrame:CGRectMake(20, 89, 85, 44)];
+    lblPhoneCode.font = [UIFont systemFontOfSize:14.0f];
+    lblPhoneCode.text = @"短信验证码";
     [vBack addSubview:lblPhoneCode];
     
     self.tfPhoneCode = [[UITextField alloc] initWithFrame:CGRectMake(lblPhoneCode.right, 89, kDisWidth - 200, 44)];
     [self.tfPhoneCode setClearButtonMode:UITextFieldViewModeWhileEditing];
     self.tfPhoneCode.keyboardType=UIKeyboardTypeNumberPad;
     self.tfPhoneCode.delegate = self;
-    self.tfPhoneCode.font = [UIFont systemFontOfSize:12.0f];
-    self.tfPhoneCode.placeholder = @"输入短信验证码";
+    self.tfPhoneCode.font = [UIFont systemFontOfSize:14.0f];
+    self.tfPhoneCode.placeholder = @"请输入短信验证码";
     [vBack addSubview:self.tfPhoneCode];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kDisWidth, 40)];

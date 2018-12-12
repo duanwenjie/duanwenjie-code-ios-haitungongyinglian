@@ -12,32 +12,45 @@
 #import "ClassifViewController.h"
 #import "ShopingCart_VC.h"
 #import "PersonalCenterViewController.h"
+#import "LoginViewController.h"
 
 
 @interface C_TabBarController ()
 
 @property (nonatomic, strong) NSMutableArray    *arrayControllTabBarItem;
 
+@property (nonatomic, assign) BOOL  isLogin;
 
 @end
 
 @implementation C_TabBarController
 
+- (instancetype)initWithLogin:(BOOL)isLogin
+{
+    self = [super init];
+    if (self) {
+        self.isLogin = isLogin;
+        [self initNew];
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)initNew{
     
     NewHome_VC *homeVC = [[NewHome_VC alloc] init];
     ClassifViewController *classVC = [[ClassifViewController alloc]init];
     PersonalCenterViewController *personalVC = [[PersonalCenterViewController alloc] init];
     ShopingCart_VC *cartVC = [[ShopingCart_VC alloc] init];
-    
+    LoginViewController * lg_VC = [[LoginViewController alloc]initWithLogin:YES];
     
     UINavigationController *navOne = [[UINavigationController alloc] initWithRootViewController:homeVC];
     UINavigationController *navTwo = [[UINavigationController alloc] initWithRootViewController:classVC];
     UINavigationController *navThree = [[UINavigationController alloc] initWithRootViewController:cartVC];
-    UINavigationController *navFour = [[UINavigationController alloc] initWithRootViewController:personalVC];
-    
-    
+    UINavigationController *navFour = [[UINavigationController alloc]init];
+    navFour = [[UINavigationController alloc] initWithRootViewController:personalVC];
     NSArray *arrVC = @[navOne, navTwo, navThree, navFour];
     
     
@@ -82,11 +95,16 @@
     UIImage* tabBarBackground = [UIImage imageNamed:@"背景图"];
     [self.tabBar setBackgroundImage:[tabBarBackground resizableImageWithCapInsets:UIEdgeInsetsMake(24.5, 0, 24.5, 0) resizingMode:UIImageResizingModeStretch]];
      */
-    self.viewControllers = self.arrayControllTabBarItem;
     
+    //如果是C端需要登录
+    if(self.isLogin){
+        self.arrayControllTabBarItem = nil;
+        navFour = [[UINavigationController alloc] initWithRootViewController:lg_VC];
+       [self.arrayControllTabBarItem addObject:navFour];
+    }
+    
+    self.viewControllers = self.arrayControllTabBarItem;
 }
-
-
 
 - (void)addRedDot:(NSInteger)iControllerType dotNumber:(NSInteger)iNumber
 {

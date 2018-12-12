@@ -16,4 +16,7 @@
 
 - (instancetype)logout;
 
+- (instancetype)initWithLogin:(BOOL)isLogin;
+
+
 @end

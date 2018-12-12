@@ -32,6 +32,9 @@ static NSString * const kLoginInURL = @"/user/login";
 
 @property (nonatomic, copy) NSString *sChangePassword;
 
+@property (nonatomic, assign) BOOL isLogin;
+
+
 @end
 
 @implementation LoginViewController
@@ -41,6 +44,15 @@ static NSString * const kLoginInURL = @"/user/login";
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.sChangePassword = sChangePassword;
+    }
+    return self;
+}
+
+- (instancetype)initWithLogin:(BOOL)isLogin
+{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.isLogin = isLogin;
     }
     return self;
 }
@@ -58,6 +70,7 @@ static NSString * const kLoginInURL = @"/user/login";
 {
     [super viewDidDisappear:animated];
     // 开启
+    self.tabBarController.tabBar.hidden = NO;
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     }
@@ -65,6 +78,7 @@ static NSString * const kLoginInURL = @"/user/login";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+     self.tabBarController.tabBar.hidden = YES;
     [self checkForAutoLogin];
 }
 
@@ -111,7 +125,11 @@ static NSString * const kLoginInURL = @"/user/login";
     [btn addTarget:self action:@selector(forgetPassword) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
-    [self addNavigationType:YKS_Left_Title_RightTwo NavigationTitle:@"登录"];
+    if(self.isLogin){
+        [self addNavigationType:YKS_Title_RightTwo NavigationTitle:@"登录"];
+    }else{
+        [self addNavigationType:YKS_Left_Title_RightTwo NavigationTitle:@"登录"];
+    }
     [self.btnRigthTwo setTitle:@"注册" forState:UIControlStateNormal];
     [self.btnRigthTwo setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.btnRigthTwo.titleLabel.font = kFont16;
@@ -142,12 +160,12 @@ static NSString * const kLoginInURL = @"/user/login";
 -(void)forgetPassword
 {
     ForgetPwdViewController *forgetVC=[[ForgetPwdViewController alloc] init];
-    [self.navigationController pushViewController:forgetVC animated:YES];
+    [self YKSRootPushViewController:forgetVC];
 }
 
 #pragma mark --登录
 
--(void)loginn{
+- (void)loginn{
     
     NSString *sUserName = phoneText.phoneTxt.text;
     if (sUserName.length == 0) {
@@ -386,7 +404,7 @@ static NSString * const kLoginInURL = @"/user/login";
 -(void)tapRightTwo
 {
     SignViewController *signVC = [[SignViewController alloc] init];
-    [self.navigationController pushViewController:signVC animated:YES];
+    [self YKSRootPushViewController:signVC];
 }
 
 //点击空白收回键盘

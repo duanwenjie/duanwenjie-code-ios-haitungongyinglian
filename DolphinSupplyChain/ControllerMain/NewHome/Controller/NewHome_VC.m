@@ -22,6 +22,7 @@
 #import "CommodityDetails_VC.h"
 #import "CommodityDetails_VC.h"
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 
 
@@ -256,7 +257,10 @@
 - (void)updateVersion
 {
     UIAlertController *altController = [UIAlertController alertControllerWithTitle:@"发现新版本可供更新" message:@"  1. 日夜赶工,修复了一些小问题.\n  2. 改来改去,优化了一些功能.\n  3. 貌似性能提升了那么一点点." preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+    WS(weakSelf);
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"暂不更新" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        //点击暂不更新就强制退出APP
+        [weakSelf exitApplication];
     }];
     float floatString = [[[UIDevice currentDevice] systemVersion] floatValue];
     UIView *subView1 = altController.view.subviews[0];
@@ -287,6 +291,18 @@
     [self.navigationController presentViewController:altController animated:YES completion:nil];
 }
 
+//强制退出APP程序
+- (void)exitApplication
+{
+    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    UIWindow *window = app.window;
+    [UIView animateWithDuration:0.5f animations:^{
+        window.alpha = 0;
+        window.frame = CGRectMake(0, window.bounds.size.width, 0, 0);
+    } completion:^(BOOL finished) {
+        exit(0);
+    }];
+}
 
 - (void)loadViewData
 {
