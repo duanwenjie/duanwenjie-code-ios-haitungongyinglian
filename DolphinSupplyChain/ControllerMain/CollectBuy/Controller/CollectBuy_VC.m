@@ -200,7 +200,6 @@
     if (cell == nil) {
         cell = [[CollectBuyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CollectBuyCell"];
         CollectModel *Model = self.arrData[indexPath.row];
-#warning 需要加判断
         [cell loadView:Model.img_original BuyName:Model.goods_name MoneyOne:Model.price MoneyTwo:Model.market_price isLoseEfficacy:YES];
     }
     return cell;
@@ -208,14 +207,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 115;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CollectModel *Model = self.arrData[indexPath.row];
-#warning 需要加判断
 //    if (YES) { // 如果产品失效那么不能进入产品详情
 //        return;
 //    }
