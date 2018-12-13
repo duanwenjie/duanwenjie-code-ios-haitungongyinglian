@@ -58,7 +58,7 @@
     [self.imgBuy mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).offset(5);
         make.left.equalTo(self.contentView.mas_left).offset(5);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-20);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
         make.width.mas_equalTo(90);
     }];
     
@@ -83,13 +83,13 @@
     
     [self.lblBuyMoneyOne mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imgBuy.mas_right).offset(8);
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-25);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-15);
         make.height.mas_offset(18);
     }];
     
     
     [self.lblBuyMoneyTwo mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.contentView.mas_bottom).offset(-25);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-15);
         make.height.mas_offset(16);
         make.left.equalTo(self.lblBuyMoneyOne.mas_right).offset(5);
     }];
@@ -102,7 +102,7 @@
     
     [self.vLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.contentView);
-        make.height.mas_equalTo(15);
+        make.height.mas_equalTo(5);
     }];
 }
 
