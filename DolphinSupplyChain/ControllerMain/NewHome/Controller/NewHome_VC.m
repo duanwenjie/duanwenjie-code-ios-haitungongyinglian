@@ -294,7 +294,7 @@
 //强制退出APP程序
 - (void)exitApplication
 {
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     UIWindow *window = app.window;
     [UIView animateWithDuration:0.5f animations:^{
         window.alpha = 0;

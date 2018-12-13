@@ -33,9 +33,10 @@
     
     [self.view addSubview:self.vSuccessView];
     [self.view addSubview:self.labText];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self.vSuccessView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(100);
+        make.top.equalTo(self.view).offset(kDisNavgation+25);
         make.centerX.equalTo(self.view);
         make.width.mas_equalTo(70);
         make.height.mas_equalTo(70);
@@ -118,7 +119,7 @@
         _labText.font = [UIFont systemFontOfSize:20];
         _labText.text = @"注册申请提交成功";
         _labText.textAlignment = NSTextAlignmentCenter;
-        _labText.textColor = [UIColor colorWithRed:51/255 green:51/255 blue:51/255 alpha:1];
+        _labText.textColor = [UIColor colorWithRed:51/255 green:51/255 blue:51/255 alpha:0.7];
     }
     return _labText;
 }
@@ -129,7 +130,7 @@
         _labText2.font = [UIFont systemFontOfSize:16];
         _labText2.text = @"扫码关注微信公众号，优惠活动早知道";
         _labText2.textAlignment = NSTextAlignmentCenter;
-        _labText2.textColor = [UIColor colorWithRed:102/255 green:102/255 blue:102/255 alpha:1];
+        _labText2.textColor = [UIColor colorWithRed:102/255 green:102/255 blue:102/255 alpha:0.5];
     }
     return _labText2;
 }
@@ -140,7 +141,7 @@
         _labText3.font = [UIFont systemFontOfSize:16];
         _labText3.text = @"扫码添加微信客服，审核进度早知道";
         _labText3.textAlignment = NSTextAlignmentCenter;
-        _labText3.textColor = [UIColor colorWithRed:102/255 green:102/255 blue:102/255 alpha:1];
+        _labText3.textColor = [UIColor colorWithRed:102/255 green:102/255 blue:102/255 alpha:0.5];
     }
     return _labText3;
 }

@@ -450,7 +450,7 @@ static NSString * const kLoginInURL = @"/user/login";
     }else if(self.btnClick2){
         weixin_VC.isIndividual = NO;
     }else{
-        [self.view makeToast:@"类型不能为空"];
+        [self.view makeToast:@"注册类型不能为空" duration:1.0 position:CSToastPositionCenter];
         return;
     };
     
@@ -487,13 +487,13 @@ static NSString * const kLoginInURL = @"/user/login";
 {
     if (!_btnIndividual) {
         _btnIndividual = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_btnIndividual setTitle:@"个人用户" forState:UIControlStateNormal];
+        [_btnIndividual setTitle:@" 个人" forState:UIControlStateNormal];
         [_btnIndividual setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
-        [_btnIndividual setImage:[UIImage drawImageWithName:@"choose_default" size:CGSizeMake(20, 20)] forState:UIControlStateNormal];
+        [_btnIndividual setImage:[UIImage drawImageWithName:@"choose_default" size:CGSizeMake(15, 15)] forState:UIControlStateNormal];
         
-        [_btnIndividual setTitle:@"个人用户" forState:UIControlStateSelected];
+        [_btnIndividual setTitle:@" 个人" forState:UIControlStateSelected];
         [_btnIndividual setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateSelected];
-        [_btnIndividual setImage:[UIImage drawImageWithName:@"choose_selected" size:CGSizeMake(20, 20)] forState:UIControlStateSelected];
+        [_btnIndividual setImage:[UIImage drawImageWithName:@"choose_selected" size:CGSizeMake(15, 15)] forState:UIControlStateSelected];
         
         [_btnIndividual addTarget:self action:@selector(selectorDefault) forControlEvents:UIControlEventTouchUpInside];
         
@@ -507,13 +507,13 @@ static NSString * const kLoginInURL = @"/user/login";
 {
     if (!_btnFenxiao) {
         _btnFenxiao = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_btnFenxiao setTitle:@"分销商" forState:UIControlStateNormal];
+        [_btnFenxiao setTitle:@" 分销商" forState:UIControlStateNormal];
         [_btnFenxiao setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
-        [_btnFenxiao setImage:[UIImage drawImageWithName:@"choose_default" size:CGSizeMake(20, 20)] forState:UIControlStateNormal];
+        [_btnFenxiao setImage:[UIImage drawImageWithName:@"choose_default" size:CGSizeMake(15, 15)] forState:UIControlStateNormal];
 
-        [_btnFenxiao setTitle:@"分销商" forState:UIControlStateSelected];
+        [_btnFenxiao setTitle:@" 分销商" forState:UIControlStateSelected];
         [_btnFenxiao setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateSelected];
-        [_btnFenxiao setImage:[UIImage drawImageWithName:@"choose_selected" size:CGSizeMake(20, 20)] forState:UIControlStateSelected];
+        [_btnFenxiao setImage:[UIImage drawImageWithName:@"choose_selected" size:CGSizeMake(15, 15)] forState:UIControlStateSelected];
         
         [_btnFenxiao addTarget:self action:@selector(selectorDefault2) forControlEvents:UIControlEventTouchUpInside];
         
