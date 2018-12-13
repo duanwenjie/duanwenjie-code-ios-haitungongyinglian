@@ -85,7 +85,6 @@
     self.sUser_Account     = dicInfo[@"data"][@"user_name"];
     self.sUser_Type        = dicInfo[@"data"][@"user_type"];
     self.sUser_Wechat      = dicInfo[@"data"][@"wechat"];
-    self.sUser_Ticket      = dicInfo[@"ticket"];
     
     
     [userDefaults setValue:self.sUser_Birthday forKey:@"YKSBirthday"];
@@ -101,7 +100,6 @@
     [userDefaults setValue:self.sUser_Account forKey:@"YKSUserName"];
     [userDefaults setValue:self.sUser_Type forKey:@"YKSUserType"];
     [userDefaults setValue:self.sUser_Wechat forKey:@"YKSWechat"];
-    [userDefaults setValue:self.sUser_Ticket forKey:@"YKSTicket"];
     
     [userDefaults setBool:YES forKey:@"YKS_Login"];
     
@@ -263,7 +261,7 @@
 
 - (void)caseDeleteAllUserInfo
 {
-    // 不清除电话号码
+    // 不清除电话号码&用户账号（可用于登录）
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     self.sUser_Birthday    = @"";
@@ -275,7 +273,6 @@
     self.sUser_QQ          = @"";
     self.sUser_Sex         = @"";
     self.sUser_ID          = @"";
-    self.sUser_Account     = @"";
     self.sUser_Type        = @"";
     self.sUser_Wechat      = @"";
     self.sUser_Ticket      = @"";
@@ -290,7 +287,6 @@
     [userDefaults setValue:self.sUser_QQ forKey:@"YKSQQ"];
     [userDefaults setValue:self.sUser_Sex forKey:@"YKSSex"];
     [userDefaults setValue:self.sUser_ID forKey:@"YKSUserID"];
-    [userDefaults setValue:self.sUser_Account forKey:@"YKSUserName"];
     [userDefaults setValue:self.sUser_Type forKey:@"YKSUserType"];
     [userDefaults setValue:self.sUser_Wechat forKey:@"YKSWechat"];
     [userDefaults setValue:self.sUser_Ticket forKey:@"YKSTicket"];

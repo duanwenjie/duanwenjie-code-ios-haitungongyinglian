@@ -86,6 +86,8 @@ static NSString * const kLoginInURL = @"/user/login";
 {
     if ([YKSUserDefaults shareInstance].sUser_Mobile.length != 0) {
         phoneText.phoneTxt.text = [YKSUserDefaults shareInstance].sUser_Mobile;
+    }else if ([YKSUserDefaults shareInstance].sUser_Account.length != 0){
+        phoneText.phoneTxt.text = [YKSUserDefaults shareInstance].sUser_Account;
     }
 }
 

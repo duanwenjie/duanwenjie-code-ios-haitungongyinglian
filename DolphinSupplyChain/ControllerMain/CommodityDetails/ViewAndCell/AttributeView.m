@@ -215,15 +215,7 @@
         }];
     }
     
-   
-    NSInteger Max = [self.model.stock integerValue];
-    
-    NSInteger MaxPrice = [self.model.stock integerValue] * [self.model.price integerValue];
-    if (Max < 500 && MaxPrice < 50000) {
-        self.lblInventory.text = [NSString stringWithFormat:@"库存：%@", self.model.stock];
-    }else{
-        self.lblInventory.text = [NSString stringWithFormat:@"库存：货源充足"];
-    }
+    self.lblInventory.text = [NSString stringWithFormat:@"库存：%@", self.model.stock_description];
     
     self.lblNumber.text = self.model.min_purchase_quantity;
     
@@ -371,15 +363,8 @@
             make.height.mas_equalTo(10);
         }];
     }
-    NSInteger Max = [self.model.stock integerValue];
     
-    NSInteger MaxPrice = [self.model.stock integerValue] * [self.model.price integerValue];
-    if (Max < 500 && MaxPrice < 50000) {
-        self.lblInventory.text = [NSString stringWithFormat:@"库存：%@", self.model.stock];
-    }else{
-        self.lblInventory.text = [NSString stringWithFormat:@"库存：货源充足"];
-    }
-
+    self.lblInventory.text = [NSString stringWithFormat:@"库存：%@", self.model.stock_description];
     
     self.lblNumber.text = self.model.min_purchase_quantity;
     
