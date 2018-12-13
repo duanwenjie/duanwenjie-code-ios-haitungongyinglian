@@ -80,34 +80,20 @@
         }
     }];
 
-    
     if (![YKSUserDefaults isUserIndividual]) {
-        if ([[YKSUserDefaults shareInstance].sUser_Type  isEqual: @"0"]) {
-            //是B端普通用户可以下采购单
-            [self.btnPurchase mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.bottom.equalTo(self);
-                make.left.equalTo(self.btnSettle.mas_right).offset(1);
-                make.right.equalTo(self.mas_right).offset(0);
-                if (kDisWidth == 320 || kDisWidth == 375) {
-                    make.width.mas_equalTo(kDisWidth/4 - 15);
-                }
-                else
-                {
-                    make.width.mas_equalTo(kDisWidth/4);
-                }
-            }];
-
-        }else{
-           //不是B端普通用户不可以下采购单
-            [self.btnPurchase mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.bottom.equalTo(self);
-                make.left.equalTo(self.btnSettle.mas_right).offset(1);
-                make.right.equalTo(self.mas_right).offset(0);
-                make.width.mas_equalTo(0.1);
-
-            }];
-        }
-        
+        //非C端普通用户可以下采购单
+        [self.btnPurchase mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(self);
+            make.left.equalTo(self.btnSettle.mas_right).offset(1);
+            make.right.equalTo(self.mas_right).offset(0);
+            if (kDisWidth == 320 || kDisWidth == 375) {
+                make.width.mas_equalTo(kDisWidth/4 - 15);
+            }
+            else
+            {
+                make.width.mas_equalTo(kDisWidth/4);
+            }
+        }];
     }
     
     [self.btnDelete mas_makeConstraints:^(MASConstraintMaker *make) {
