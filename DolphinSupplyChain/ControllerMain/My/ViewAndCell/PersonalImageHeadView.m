@@ -135,7 +135,7 @@
         self.lblUserName.hidden = NO;
         self.imgArrows.hidden = NO;
         
-        NSString *sAccount = [YKSUserDefaults shareInstance].sUser_Nick;
+        NSString *sAccount = [YKSUserDefaults shareInstance].sUser_Account;
         NSString *sPhone = [YKSUserDefaults shareInstance].sUser_Mobile;
         if (sAccount.length == 0) {
             self.lblAccount.text = sPhone;
