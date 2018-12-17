@@ -487,11 +487,11 @@ static NSString * const kLoginInURL = @"/user/login";
 {
     if (!_btnIndividual) {
         _btnIndividual = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_btnIndividual setTitle:@" 个人" forState:UIControlStateNormal];
+        [_btnIndividual setTitle:@" 个 人" forState:UIControlStateNormal];
         [_btnIndividual setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         [_btnIndividual setImage:[UIImage drawImageWithName:@"choose_default" size:CGSizeMake(15, 15)] forState:UIControlStateNormal];
         
-        [_btnIndividual setTitle:@" 个人" forState:UIControlStateSelected];
+        [_btnIndividual setTitle:@" 个 人" forState:UIControlStateSelected];
         [_btnIndividual setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateSelected];
         [_btnIndividual setImage:[UIImage drawImageWithName:@"choose_selected" size:CGSizeMake(15, 15)] forState:UIControlStateSelected];
         
@@ -507,11 +507,11 @@ static NSString * const kLoginInURL = @"/user/login";
 {
     if (!_btnFenxiao) {
         _btnFenxiao = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_btnFenxiao setTitle:@" 分销商" forState:UIControlStateNormal];
+        [_btnFenxiao setTitle:@" 企 业" forState:UIControlStateNormal];
         [_btnFenxiao setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateNormal];
         [_btnFenxiao setImage:[UIImage drawImageWithName:@"choose_default" size:CGSizeMake(15, 15)] forState:UIControlStateNormal];
 
-        [_btnFenxiao setTitle:@" 分销商" forState:UIControlStateSelected];
+        [_btnFenxiao setTitle:@" 企 业" forState:UIControlStateSelected];
         [_btnFenxiao setTitleColor:[UIColor colorWithHexString:@"666666"] forState:UIControlStateSelected];
         [_btnFenxiao setImage:[UIImage drawImageWithName:@"choose_selected" size:CGSizeMake(15, 15)] forState:UIControlStateSelected];
         
