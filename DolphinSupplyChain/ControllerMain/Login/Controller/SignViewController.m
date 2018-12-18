@@ -61,7 +61,7 @@ static NSString * const kLoginInURL = @"/user/login";
     [super viewDidLoad];
     
     
-    UIView *vBack = [[UIView alloc] initWithFrame:CGRectMake(0, 13 + kDisNavgation, kDisWidth, 354)];
+    UIView *vBack = [[UIView alloc] initWithFrame:CGRectMake(0, 13 + kDisNavgation, kDisWidth, 310)];
     vBack.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:vBack];
     
@@ -95,10 +95,10 @@ static NSString * const kLoginInURL = @"/user/login";
     vLineSix.backgroundColor = [UIColor colorWithHexString:@"c1c1c1"];
     [vBack addSubview:vLineSix];
     
-    UIView *vLineSeven = [[UIView alloc] init];
-    vLineSeven.frame = CGRectMake(20, 309.5, kDisWidth - 20, 0.5);
-    vLineSeven.backgroundColor = [UIColor colorWithHexString:@"c1c1c1"];
-    [vBack addSubview:vLineSeven];
+//    UIView *vLineSeven = [[UIView alloc] init];
+//    vLineSeven.frame = CGRectMake(20, 309.5, kDisWidth - 20, 0.5);
+//    vLineSeven.backgroundColor = [UIColor colorWithHexString:@"c1c1c1"];
+//    [vBack addSubview:vLineSeven];
 
     companyText = [[PhoneView alloc] initWithFrame:CGRectMake(0, 0, kDisWidth-20, 44.0)];
     companyText.lblName.text = @"公司名";
@@ -136,19 +136,19 @@ static NSString * const kLoginInURL = @"/user/login";
     passwordConfirmText.placeText = @"请再次输入密码";
     [vBack addSubview:passwordConfirmText];
     
-    UIView * vType = [[UIView alloc]initWithFrame:CGRectMake(0, 310, kDisWidth, 44.0)];
-    
-    UILabel * labType = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 100, 44.0)];
-    labType.text = @"请选择注册类型";
-    labType.font = [UIFont systemFontOfSize:14];
-    [vType addSubview:labType];
-    
-    [self.btnIndividual setFrame:CGRectMake(125, 0, 100, 44)];
-    [vType addSubview:self.btnIndividual];
-    
-    [self.btnFenxiao setFrame:CGRectMake(225, 0, 100, 44)];
-    [vType addSubview:self.btnFenxiao];
-    [vBack addSubview:vType];
+//    UIView * vType = [[UIView alloc]initWithFrame:CGRectMake(0, 310, kDisWidth, 44.0)];
+//
+//    UILabel * labType = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 100, 44.0)];
+//    labType.text = @"请选择注册类型";
+//    labType.font = [UIFont systemFontOfSize:14];
+//    [vType addSubview:labType];
+//
+//    [self.btnIndividual setFrame:CGRectMake(125, 0, 100, 44)];
+//    [vType addSubview:self.btnIndividual];
+//
+//    [self.btnFenxiao setFrame:CGRectMake(225, 0, 100, 44)];
+//    [vType addSubview:self.btnFenxiao];
+//    [vBack addSubview:vType];
 
     LoginButton *loginBtn=[[LoginButton alloc] initWithFrame:CGRectMake(0, vBack.bottom + 20, vBack.width - 30, 36)];
     loginBtn.center = CGPointMake(kDisWidth/2, vBack.bottom + 40);
@@ -254,14 +254,14 @@ static NSString * const kLoginInURL = @"/user/login";
         return;
     }
     
-    if (self.btnClick1) {
-        self.type = @"1";
-    }else if(self.btnClick2){
-        self.type = @"2";
-    }else{
-        [self.view makeToast:@"注册类型不能为空" duration:1.0 position:CSToastPositionCenter];
-        return;
-    }
+//    if (self.btnClick1) {
+//        self.type = @"1";
+//    }else if(self.btnClick2){
+//        self.type = @"2";
+//    }else{
+//        [self.view makeToast:@"注册类型不能为空" duration:1.0 position:CSToastPositionCenter];
+//        return;
+//    }
     
     [HTLoadingTool showLoadingStringDontOperation:@"注册中..."];
     NSDictionary *dic = @{
@@ -271,7 +271,7 @@ static NSString * const kLoginInURL = @"/user/login";
                           @"mobile_phone":phoneText.phoneTxt.text,
                           @"code":phoneMsgText.phoneTxt.text,
                           @"type":@"ios",
-                          @"apply_user_type":self.type
+                          @"apply_user_type":@"2" //默认为分销商客户 （1：个人 2:分销商）
                           };
     
     [AFHTTPClient POST:kGetRegistURL params:dic successInfo:^(ResponseModel *response) {
@@ -445,14 +445,14 @@ static NSString * const kLoginInURL = @"/user/login";
 - (void)weiXin{
     
     WeiXinViewController * weixin_VC = [[WeiXinViewController alloc]init];
-    if(self.btnClick1){
-        weixin_VC.isIndividual = YES;
-    }else if(self.btnClick2){
-        weixin_VC.isIndividual = NO;
-    }else{
-        [self.view makeToast:@"注册类型不能为空" duration:1.0 position:CSToastPositionCenter];
-        return;
-    };
+//    if(self.btnClick1){
+//        weixin_VC.isIndividual = YES;
+//    }else if(self.btnClick2){
+//        weixin_VC.isIndividual = NO;
+//    }else{
+//        [self.view makeToast:@"注册类型不能为空" duration:1.0 position:CSToastPositionCenter];
+//        return;
+//    };
     
     [self YKSRootPushViewController:weixin_VC];
     
