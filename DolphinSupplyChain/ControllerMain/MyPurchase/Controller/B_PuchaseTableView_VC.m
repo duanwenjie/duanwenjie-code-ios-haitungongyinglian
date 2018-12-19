@@ -352,6 +352,7 @@ static NSString * const KAddquickBuy = @"/cart/batchAdd";
 {
     ShopingCart_VC *shopCartVC = [[ShopingCart_VC alloc] init];
     shopCartVC.hidesBottomBarWhenPushed = YES;
+     shopCartVC.bBottom = YES;
     [self.navigationController pushViewController:shopCartVC animated:YES];
 }
 

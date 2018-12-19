@@ -48,7 +48,7 @@
 
 - (void)initView
 {
-    CGFloat fWidth = kDisWidth/4;
+    CGFloat fWidth = kDisWidth/3;
     
     [self addSubview:self.lblRealitySum];
     [self addSubview:self.btnSubmitOrder];

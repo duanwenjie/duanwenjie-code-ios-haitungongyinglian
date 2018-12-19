@@ -133,10 +133,21 @@
         make.bottom.equalTo(self.view.mas_bottom).offset(-44);
     }];
     
-    [self.vFoot mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.left.right.equalTo(self.view);
-        make.height.mas_equalTo(44);
-    }];
+    //如果是iPhone X KBottomSuit
+    if (kDisHeight == 812.0) {
+        [self.vFoot mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.view);
+            make.height.mas_offset(44);
+            make.bottom.equalTo(self.view.mas_bottom).offset(-10);
+        }];
+    }else{
+        [self.vFoot mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self.view);
+            make.height.mas_offset(44);
+            make.bottom.equalTo(self.view.mas_bottom).offset(0);
+        }];
+    }
+    
     
     // 跳转到订单风控界面
     WS(weakSelf);

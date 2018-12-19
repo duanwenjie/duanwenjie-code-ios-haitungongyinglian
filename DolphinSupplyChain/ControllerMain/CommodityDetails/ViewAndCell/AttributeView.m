@@ -191,7 +191,7 @@
     [self.btnAddCart mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.bottom.right.equalTo(self);
         make.left.right.equalTo(self);
-        make.bottom.equalTo(self).offset(-KBottomSuit);
+        make.bottom.equalTo(self).offset(-(kDisHeight == 812.0 ? 10 : 0));
         make.height.mas_equalTo(40);
     }];
 }
