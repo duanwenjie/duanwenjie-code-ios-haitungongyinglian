@@ -199,9 +199,10 @@
     CollectBuyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CollectBuyCell"];
     if (cell == nil) {
         cell = [[CollectBuyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CollectBuyCell"];
-        CollectModel *Model = self.arrData[indexPath.row];
-        [cell loadView:Model.img_original BuyName:Model.goods_name MoneyOne:Model.price MoneyTwo:Model.market_price isLoseEfficacy:YES];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
+    CollectModel *Model = self.arrData[indexPath.row];
+    [cell loadView:Model.img_original BuyName:Model.goods_name MoneyOne:Model.price MoneyTwo:Model.market_price isLoseEfficacy:YES];
     return cell;
 }
 

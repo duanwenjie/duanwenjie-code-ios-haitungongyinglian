@@ -150,46 +150,44 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    static NSString * ID = @"cell";
+    static NSString * ID = @"ExtentionsCells";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor whiteColor];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        GoodsExtentionModel * model = self.goodsProduct[indexPath.row];
-        
-        ZXNImageView * vimageView = [[ZXNImageView alloc]initWithFrame:CGRectMake(15, 15, kDisNavgation, kDisNavgation)];
-        vimageView.layer.borderWidth = 0.5;
-        vimageView.layer.borderColor = kLineColer.CGColor;
-        vimageView.layer.masksToBounds = YES;
-        [vimageView downloadImage:model.img_thumb backgroundImage:ZXNImageDefaul];
-        [cell.contentView addSubview:vimageView];
-        
-        UILabel * labtitile = [[UILabel alloc]initWithFrame:CGRectMake(vimageView.right+10, 15, kDisWidth-104, 34)];
-        labtitile.text = model.goods_name;
-        labtitile.textColor = [UIColor colorWithHexString:@"#333333"];
-        labtitile.font = [UIFont systemFontOfSize:12];
-        labtitile.textAlignment = NSTextAlignmentLeft;
-        labtitile.numberOfLines = 0;
-        [cell.contentView addSubview:labtitile];
-        
-        UILabel * labGoodsSn = [[UILabel alloc]initWithFrame:CGRectMake(vimageView.right+10, vimageView.bottom-30, 200, 30)];
-        
-        labGoodsSn.text = [NSString stringWithFormat:@"商品编号: %@",model.sku];
-        labGoodsSn.textColor = [UIColor colorWithHexString:@"#666666"];
-        labGoodsSn.font = [UIFont systemFontOfSize:12];
-        labGoodsSn.textAlignment = NSTextAlignmentLeft;
-        [cell.contentView addSubview:labGoodsSn];
-        
-        if (self.arrMData.count <= 3) {
-            UIView * vLine = [[UIView alloc]initWithFrame:CGRectMake(10, vimageView.bottom+15, kDisWidth-20, 0.5)];
-            vLine.backgroundColor = kLineColer;
-            [cell.contentView addSubview:vLine];
-        }
-        
-        
+    }
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    GoodsExtentionModel * model = self.goodsProduct[indexPath.row];
+    
+    ZXNImageView * vimageView = [[ZXNImageView alloc]initWithFrame:CGRectMake(15, 15, kDisNavgation, kDisNavgation)];
+    vimageView.layer.borderWidth = 0.5;
+    vimageView.layer.borderColor = kLineColer.CGColor;
+    vimageView.layer.masksToBounds = YES;
+    [vimageView downloadImage:model.img_thumb backgroundImage:ZXNImageDefaul];
+    [cell.contentView addSubview:vimageView];
+    
+    UILabel * labtitile = [[UILabel alloc]initWithFrame:CGRectMake(vimageView.right+10, 15, kDisWidth-104, 34)];
+    labtitile.text = model.goods_name;
+    labtitile.textColor = [UIColor colorWithHexString:@"#333333"];
+    labtitile.font = [UIFont systemFontOfSize:12];
+    labtitile.textAlignment = NSTextAlignmentLeft;
+    labtitile.numberOfLines = 0;
+    [cell.contentView addSubview:labtitile];
+    
+    UILabel * labGoodsSn = [[UILabel alloc]initWithFrame:CGRectMake(vimageView.right+10, vimageView.bottom-30, 200, 30)];
+    
+    labGoodsSn.text = [NSString stringWithFormat:@"商品编号: %@",model.sku];
+    labGoodsSn.textColor = [UIColor colorWithHexString:@"#666666"];
+    labGoodsSn.font = [UIFont systemFontOfSize:12];
+    labGoodsSn.textAlignment = NSTextAlignmentLeft;
+    [cell.contentView addSubview:labGoodsSn];
+    
+    if (self.arrMData.count <= 3) {
+        UIView * vLine = [[UIView alloc]initWithFrame:CGRectMake(10, vimageView.bottom+15, kDisWidth-20, 0.5)];
+        vLine.backgroundColor = kLineColer;
+        [cell.contentView addSubview:vLine];
     }
     return cell;
     

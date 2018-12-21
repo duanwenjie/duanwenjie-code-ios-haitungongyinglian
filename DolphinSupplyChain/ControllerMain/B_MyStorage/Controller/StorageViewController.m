@@ -239,11 +239,11 @@ static NSString * const kMyStorageURL = @"/MwStock/getStockList";
     static NSString * storeCellID = @"storeCellID";
     StorageViewCell * cell = [tableView dequeueReusableCellWithIdentifier:storeCellID];
    
-    cell = [[StorageViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:storeCellID];
-        StorageModel * storageModel = storageArray[indexPath.section];
-    
+    if (cell == nil) {
+        cell = [[StorageViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:storeCellID];
+    }
+    StorageModel * storageModel = storageArray[indexPath.section];
     [cell setData:storageModel];
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
