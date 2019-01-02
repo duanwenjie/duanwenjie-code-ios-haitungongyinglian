@@ -95,15 +95,15 @@
     self.arrCellImageData = @[@[@"Personal_Center_Cart", @"Personal_Center_Warehouse", @"Personal_Center_Collect", @"Personal_Center_ Address"],
                               @[@"Personal_Center_Member", @"Personal_Center_Service", @"Personal_Center_Recommend"]];
     */
-//    self.arrCellNameData = @[@[@"购物车", @"我的微仓", @"我的收藏", @"我的地址"],
-//                             @[@"联系客服", @"推荐给好友"]];
-//    self.arrCellImageData = @[@[@"Personal_Center_Cart", @"Personal_Center_Warehouse", @"Personal_Center_Collect", @"Personal_Center_ Address"],
-//                              @[@"Personal_Center_Service", @"Personal_Center_Recommend"]];
-    
-    self.arrCellNameData = @[@[@"购物车", @"我的微仓", @"我的收藏"],
+    self.arrCellNameData = @[@[@"购物车", @"我的微仓", @"我的收藏", @"我的地址"],
                              @[@"联系客服", @"推荐给好友"]];
-    self.arrCellImageData = @[@[@"Personal_Center_Cart", @"Personal_Center_Warehouse", @"Personal_Center_Collect"],
+    self.arrCellImageData = @[@[@"Personal_Center_Cart", @"Personal_Center_Warehouse", @"Personal_Center_Collect", @"Personal_Center_ Address"],
                               @[@"Personal_Center_Service", @"Personal_Center_Recommend"]];
+    
+//    self.arrCellNameData = @[@[@"购物车", @"我的微仓", @"我的收藏"],
+//                             @[@"联系客服", @"推荐给好友"]];
+//    self.arrCellImageData = @[@[@"Personal_Center_Cart", @"Personal_Center_Warehouse", @"Personal_Center_Collect"],
+//                              @[@"Personal_Center_Service", @"Personal_Center_Recommend"]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -288,7 +288,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 0.01;
+//        return 0.01;
+        return 76;
     }
     return 50;
 }
@@ -309,52 +310,52 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-//        PersonalOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OrderCell"];
-//        if (cell == nil) {
-//
-//            cell = [[PersonalOrderCell alloc] initWithReuseIdentifier:@"OrderCell" tapSomeButton:^(PersonalOrderType type) {
-//
-//                NSInteger i = 0;
-//                switch (type) {
-//                    case AllOrder: // 全部订单回调
-//                        i = 0;
-//                        break;
-//                    case Payment:  // 待付款回调
-//                        i = 1;
-//                        break;
-//                    case Shipments:// 待发货回调
-//                        i = 2;
-//                        break;
-//                    case GatherGoods: // 待收货回调
-//                        i = 3;
-//                        break;
-//                }
-//
-//                if (![YKSUserDefaults isLogin]) {  // 不在登录态
-//                    LoginViewController *VC = [[LoginViewController alloc] init];
-//                    [self YKSRootPushViewController:VC];
-//                }
-//                else {  // 在登录态
-//
-//                    OrderList_VC *orderList_VC = [[OrderList_VC alloc] initWithOrderType:i];
-//                    [self YKSRootPushViewController:orderList_VC];
-//                }
-//
-//            }];
-//        }
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//
-//        if (![YKSUserDefaults isLogin]) {  // 不在登录态
-//            [cell loadView:@"" Shipment:@"" GatherGoods:@""];
-//        }
-//        else {  // 在登录态
-//            [cell loadView:self.sNeedPay Shipment:self.sNeedDelivery GatherGoods:self.sShipped];
-//        }
-//
-//        return cell;
-        
-        UITableViewCell * cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
+        PersonalOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OrderCell"];
+        if (cell == nil) {
+
+            cell = [[PersonalOrderCell alloc] initWithReuseIdentifier:@"OrderCell" tapSomeButton:^(PersonalOrderType type) {
+
+                NSInteger i = 0;
+                switch (type) {
+                    case AllOrder: // 全部订单回调
+                        i = 0;
+                        break;
+                    case Payment:  // 待付款回调
+                        i = 1;
+                        break;
+                    case Shipments:// 待发货回调
+                        i = 2;
+                        break;
+                    case GatherGoods: // 待收货回调
+                        i = 3;
+                        break;
+                }
+
+                if (![YKSUserDefaults isLogin]) {  // 不在登录态
+                    LoginViewController *VC = [[LoginViewController alloc] init];
+                    [self YKSRootPushViewController:VC];
+                }
+                else {  // 在登录态
+
+                    OrderList_VC *orderList_VC = [[OrderList_VC alloc] initWithOrderType:i];
+                    [self YKSRootPushViewController:orderList_VC];
+                }
+
+            }];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        if (![YKSUserDefaults isLogin]) {  // 不在登录态
+            [cell loadView:@"" Shipment:@"" GatherGoods:@""];
+        }
+        else {  // 在登录态
+            [cell loadView:self.sNeedPay Shipment:self.sNeedDelivery GatherGoods:self.sShipped];
+        }
+
         return cell;
+        
+//        UITableViewCell * cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
+//        return cell;
     }
     else
     {

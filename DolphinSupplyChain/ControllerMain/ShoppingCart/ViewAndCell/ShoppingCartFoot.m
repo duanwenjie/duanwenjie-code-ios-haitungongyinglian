@@ -70,15 +70,15 @@
     [self.btnSettle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
         make.left.equalTo(self.lblMoney.mas_right).offset(12);
-//        [YKSUserDefaults isUserIndividual] ? make.right.equalTo(self.mas_right) : make.right.equalTo(self.btnPurchase.mas_left).offset(-1);
-//        if (kDisWidth == 320 || kDisWidth == 375) {
-//            make.width.mas_equalTo(kDisWidth/4 - 15);
-//        }
-//        else
-//        {
-//            make.width.mas_equalTo(kDisWidth/4);
-//        }
-        make.width.mas_equalTo(0.1);
+        [YKSUserDefaults isUserIndividual] ? make.right.equalTo(self.mas_right) : make.right.equalTo(self.btnPurchase.mas_left).offset(-1);
+        if (kDisWidth == 320 || kDisWidth == 375) {
+            make.width.mas_equalTo(kDisWidth/4 - 15);
+        }
+        else
+        {
+            make.width.mas_equalTo(kDisWidth/4);
+        }
+//        make.width.mas_equalTo(0.1);
     }];
 
     if (![YKSUserDefaults isUserIndividual]) {
@@ -88,11 +88,11 @@
             make.left.equalTo(self.btnSettle.mas_right).offset(1);
             make.right.equalTo(self.mas_right).offset(0);
             if (kDisWidth == 320 || kDisWidth == 375) {
-                make.width.mas_equalTo(kDisWidth/3 - 15);
+                make.width.mas_equalTo(kDisWidth/4 - 15);
             }
             else
             {
-                make.width.mas_equalTo(kDisWidth/3);
+                make.width.mas_equalTo(kDisWidth/4);
             }
         }];
     }
